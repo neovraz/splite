@@ -1,0 +1,9 @@
+
+while True:
+    pygame.event.pump()
+    event=pygame.event.wait()
+    if event.type==QUIT: pygame.display.quit()
+    elif event.type==VIDEORESIZE:
+        screen=pygame.display.set_mode(event.dict['size'],HWSURFACE|DOUBLEBUF|RESIZABLE)
+        screen.blit(pygame.transform.scale(pic,event.dict['size']),(0,0))
+        pygame.display.flip()
